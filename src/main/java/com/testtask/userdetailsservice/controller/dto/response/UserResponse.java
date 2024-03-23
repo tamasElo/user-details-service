@@ -1,5 +1,6 @@
-package com.testtask.userdetailsservice.controller.dto;
+package com.testtask.userdetailsservice.controller.dto.response;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import lombok.Builder;
@@ -10,12 +11,12 @@ import lombok.Value;
 public class UserResponse {
   UUID uuid;
   String name;
-  String birthdate;
+  LocalDate birthdate;
   String placeOfBirth;
   String motherName;
   String socialSecurityCode;
   String taxId;
   String email;
-  List<String> addresses;
+  List<Address> addresses;
   List<String> phoneNumbers;
 }
