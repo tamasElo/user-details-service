@@ -1,0 +1,38 @@
+package com.testtask.userdetailsservice.repository.entity;
+
+import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
+
+@Builder
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class AddressEntity {
+
+  @Id
+  @GeneratedValue(generator = "uuid-hibernate-generator")
+  @GenericGenerator(name = "uuid-hibernate-generator", strategy = "org.hibernate.id.UUIDGenerator")
+  private UUID uuid;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "user_uuid")
+  private UserEntity user;
+
+  private int zipCode;
+  private String city;
+  private String street;
+  private int houseNumber;
+  private String floor;
+  private int apartment;
+}

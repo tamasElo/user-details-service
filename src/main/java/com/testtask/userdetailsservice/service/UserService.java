@@ -1,5 +1,7 @@
 package com.testtask.userdetailsservice.service;
 
-public interface UserService {
+import com.testtask.userdetailsservice.service.domain.User;
 
+public interface UserService {
+  User createUser(User user);
 }

@@ -1,4 +1,4 @@
-package com.testtask.userdetailsservice.controller.dto.response;
+package com.testtask.userdetailsservice.service.domain;
 
 import java.util.UUID;
 import lombok.Builder;
@@ -6,7 +6,7 @@ import lombok.Value;
 
 @Value
 @Builder
-public class AddressDto {
+public class Address {
   UUID uuid;
   int zipCode;
   String city;
