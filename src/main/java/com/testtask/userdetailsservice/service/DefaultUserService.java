@@ -43,8 +43,15 @@ public class DefaultUserService implements UserService {
 
   private void depersonalizeAddresses(UUID uuid) {
     var depersonalizedAddresses = addressRepository.findByUserUuid(uuid).stream()
-        .map(addressEntity -> AddressEntity.builder().uuid(addressEntity.getUuid()).build())
+        .map(this::depersonalizeAddress)
         .toList();
     addressRepository.saveAll(depersonalizedAddresses);
+  }
+
+  private AddressEntity depersonalizeAddress(AddressEntity addressEntity) {
+    return AddressEntity.builder()
+        .uuid(addressEntity
+            .getUuid())
+        .build();
   }
 }

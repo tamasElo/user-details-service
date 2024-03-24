@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class UserControllerErrorHandler {
+
   @ExceptionHandler(value = MethodArgumentNotValidException.class)
   public ResponseEntity<List<FieldValidationError>> handleFieldValidationError(
       MethodArgumentNotValidException ex) {
