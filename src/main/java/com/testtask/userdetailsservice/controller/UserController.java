@@ -53,8 +53,8 @@ public class UserController {
   }
 
   @PatchMapping("{uuid}")
-  public ResponseEntity<String> depersonalizeUser(@PathVariable("uuid") UUID uuid) {
+  public ResponseEntity<UUID> depersonalizeUser(@PathVariable("uuid") UUID uuid) {
     userService.depersonalizeUser(uuid);
-    return ResponseEntity.ok("success");
+    return ResponseEntity.ok(uuid);
   }
 }
