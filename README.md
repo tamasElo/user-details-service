@@ -21,6 +21,6 @@
 
 * The application can be tested by importing the ```postman_collection.json``` into postman
   which is part of the project root directory. The collection consists of three request definitions:
-  * ```create user``` can be used to add new users
-  * ```get users``` can be used to receive the list of created users
-  * ```depersonalize user``` is used for depersonalizing user personal information
+    * ```create user``` can be used to add new users
+    * ```get users``` can be used to receive the list of created users
+    * ```depersonalize user``` is used for depersonalizing user personal information

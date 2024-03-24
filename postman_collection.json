@@ -1,146 +1,146 @@
 {
-	"info": {
-		"_postman_id": "51c4edd4-ee40-44a2-bc67-ffc8816b9e69",
-		"name": "User Details Service",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "8613731"
-	},
-	"item": [
-		{
-			"name": "create user",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var userDetails = JSON.parse(responseBody);",
-							"pm.collectionVariables.set(\"uuid\", userDetails.uuid)"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\": \"Példa János\",\n    \"birthdate\": \"2000-03-25\",\n    \"placeOfBirth\": \"Siófok\",\n    \"motherName\": \"Példa Eszter\",\n    \"socialSecurityCode\": \"123456789\",\n    \"taxId\": \"9876543210\",\n    \"addresses\": [\n        {\n            \"zipCode\": 2362,\n            \"city\": \"Martonvásár\",\n            \"street\": \"Próba utca\",\n            \"houseNumber\": 108,\n            \"floor\": \"3\",\n            \"apartment\": 24\n        },\n        {\n            \"zipCode\": 3421,\n            \"city\": \"Siófok\",\n            \"street\": \"Próba utca\",\n            \"houseNumber\": 35\n        }\n    ],\n    \"phoneNumbers\": [\n        \"+36 70 866 49253\",\n        \"+36 70 616 43929\"\n    ],\n    \"email\": \"pelda.janos@example.com\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/v1/user-details-service/users",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"user-details-service",
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "depersonailze user",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/v1/user-details-service/users/{{uuid}}",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"user-details-service",
-						"users",
-						"{{uuid}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get users",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/v1/user-details-service/users",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"v1",
-						"user-details-service",
-						"users"
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "uuid",
-			"value": "",
-			"type": "string"
-		}
-	]
+  "info": {
+    "_postman_id": "51c4edd4-ee40-44a2-bc67-ffc8816b9e69",
+    "name": "User Details Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "8613731"
+  },
+  "item": [
+    {
+      "name": "create user",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var userDetails = JSON.parse(responseBody);",
+              "pm.collectionVariables.set(\"uuid\", userDetails.uuid)"
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Példa János\",\n    \"birthdate\": \"2000-03-25\",\n    \"placeOfBirth\": \"Siófok\",\n    \"motherName\": \"Példa Eszter\",\n    \"socialSecurityCode\": \"123456789\",\n    \"taxId\": \"9876543210\",\n    \"addresses\": [\n        {\n            \"zipCode\": 2362,\n            \"city\": \"Martonvásár\",\n            \"street\": \"Próba utca\",\n            \"houseNumber\": 108,\n            \"floor\": \"3\",\n            \"apartment\": 24\n        },\n        {\n            \"zipCode\": 3421,\n            \"city\": \"Siófok\",\n            \"street\": \"Próba utca\",\n            \"houseNumber\": 35\n        }\n    ],\n    \"phoneNumbers\": [\n        \"+36 70 866 49253\",\n        \"+36 70 616 43929\"\n    ],\n    \"email\": \"pelda.janos@example.com\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/v1/user-details-service/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "v1",
+            "user-details-service",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "depersonailze user",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/v1/user-details-service/users/{{uuid}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "v1",
+            "user-details-service",
+            "users",
+            "{{uuid}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get users",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/v1/user-details-service/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "v1",
+            "user-details-service",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "uuid",
+      "value": "",
+      "type": "string"
+    }
+  ]
 }
