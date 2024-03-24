@@ -30,10 +30,10 @@ public class AddressEntity {
   @Setter
   private UserEntity user;
 
-  private int zipCode;
+  private Integer zipCode;
   private String city;
   private String street;
-  private int houseNumber;
+  private Integer houseNumber;
   private String floor;
-  private int apartment;
+  private Integer apartment;
 }

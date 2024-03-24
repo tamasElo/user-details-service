@@ -10,7 +10,7 @@ import org.hibernate.validator.constraints.Range;
 public class AddressDto {
 
   @Range(min = 1000, max = 9999)
-  int zipCode;
+  Integer zipCode;
 
   @NotBlank
   String city;
@@ -18,7 +18,7 @@ public class AddressDto {
   @NotBlank
   String street;
 
-  int houseNumber;
+  Integer houseNumber;
   String floor;
-  int apartment;
+  Integer apartment;
 }

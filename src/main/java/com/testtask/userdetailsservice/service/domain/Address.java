@@ -8,10 +8,10 @@ import lombok.Value;
 @Builder
 public class Address {
   UUID uuid;
-  int zipCode;
+  Integer zipCode;
   String city;
   String street;
-  int houseNumber;
+  Integer houseNumber;
   String floor;
-  int apartment;
+  Integer apartment;
 }
