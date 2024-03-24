@@ -12,15 +12,9 @@ spring:
     open-in-view: false
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: postgres123
-
-  sql:
-    init:
-      mode: always
-      #      schema-locations: classpath:/data.sql
-      continue-on-error: true
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:5432/postgres
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:postgres123}
 
   liquibase:
     enabled: false
