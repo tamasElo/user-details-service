@@ -3,7 +3,7 @@ version: "3.0"
 services:
   user-details-service:
     depends_on:
-      db:
+      postgres:
         condition: service_healthy
     build: .
     image: user-details-service:latest
@@ -16,7 +16,7 @@ services:
     ports:
       - ${APPLICATION_PORT}:8080
 
-  db:
+  postgres:
     image: postgres
     restart: always
     environment:
@@ -27,6 +27,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    volumes:
+      - pgdata:/var/lib/postgresql/data
     networks:
       - user-details
     ports:

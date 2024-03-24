@@ -1,0 +1,91 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: tamas.elo
+      changes:
+        - createTable:
+            tableName: user_entity
+            columns:
+              - column:
+                  name: uuid
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: birthdate
+                  type: DATE
+              - column:
+                  name: email
+                  type: VARCHAR
+              - column:
+                  name: mother_name
+                  type: VARCHAR
+              - column:
+                  name: name
+                  type: VARCHAR
+              - column:
+                  name: place_of_birth
+                  type: VARCHAR
+              - column:
+                  name: social_security_code
+                  type: VARCHAR
+              - column:
+                  name: tax_id
+                  type: VARCHAR
+
+  - changeSet:
+      id: 2
+      author: tamas.elo
+      changes:
+        - createTable:
+            tableName: address_entity
+            columns:
+              - column:
+                  name: uuid
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: apartment
+                  type: INT
+              - column:
+                  name: city
+                  type: VARCHAR
+              - column:
+                  name: floor
+                  type: VARCHAR
+              - column:
+                  name: house_number
+                  type: INT
+              - column:
+                  name: street
+                  type: VARCHAR
+              - column:
+                  name: zip_code
+                  type: INT
+              - column:
+                  name: user_uuid
+                  type: UUID
+                  constraints:
+                    foreignKeyName: user_uuid
+                    references: user_entity(uuid)
+
+  - changeSet:
+      id: 3
+      author: tamas.elo
+      changes:
+        - createTable:
+            tableName: phone_numbers
+            columns:
+              - column:
+                  name: user_entity_uuid
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: user_entity_uuid
+                    references: user_entity(uuid)
+              - column:
+                  name: phone_numbers
+                  type: VARCHAR
