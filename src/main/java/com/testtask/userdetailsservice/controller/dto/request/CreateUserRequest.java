@@ -45,7 +45,7 @@ public class CreateUserRequest {
 
   @NotNull
   @Valid
-  List<Address> addresses;
+  List<AddressDto> addresses;
 
   @NotNull
   List<@Pattern(

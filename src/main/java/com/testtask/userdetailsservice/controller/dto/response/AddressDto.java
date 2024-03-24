@@ -6,7 +6,7 @@ import lombok.Value;
 
 @Value
 @Builder
-public class Address {
+public class AddressDto {
   int zipCode;
   UUID uuid;
   String city;

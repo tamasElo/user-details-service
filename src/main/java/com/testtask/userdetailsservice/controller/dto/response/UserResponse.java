@@ -17,6 +17,6 @@ public class UserResponse {
   String socialSecurityCode;
   String taxId;
   String email;
-  List<Address> addresses;
+  List<AddressDto> addresses;
   List<String> phoneNumbers;
 }

@@ -3,7 +3,7 @@ package com.testtask.userdetailsservice.controller;
 import static org.springframework.http.HttpStatus.CREATED;
 
 import com.testtask.userdetailsservice.controller.dto.request.CreateUserRequest;
-import com.testtask.userdetailsservice.controller.dto.response.Address;
+import com.testtask.userdetailsservice.controller.dto.response.AddressDto;
 import com.testtask.userdetailsservice.controller.dto.response.UserResponse;
 import java.util.List;
 import javax.validation.Valid;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @RequestMapping("/v1/user-details-service/users")
-public class UserDetailsController {
+public class UserController {
 
   @PostMapping
   public ResponseEntity<UserResponse> createUser(
@@ -39,15 +39,15 @@ public class UserDetailsController {
         .build();
   }
 
-  private List<Address> createAddresses(CreateUserRequest createUserRequest) {
+  private List<AddressDto> createAddresses(CreateUserRequest createUserRequest) {
     return createUserRequest.getAddresses().stream()
         .map(this::createAddress)
         .toList();
   }
 
-  private Address createAddress(
-      com.testtask.userdetailsservice.controller.dto.request.Address address) {
-    return Address.builder()
+  private AddressDto createAddress(
+      com.testtask.userdetailsservice.controller.dto.request.AddressDto address) {
+    return AddressDto.builder()
         .zipCode(address.getZipCode())
         .city(address.getCity())
         .street(address.getStreet())

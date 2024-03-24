@@ -7,7 +7,7 @@ import org.hibernate.validator.constraints.Range;
 
 @Value
 @Builder
-public class Address {
+public class AddressDto {
 
   @Range(min = 1000, max = 9999)
   int zipCode;
