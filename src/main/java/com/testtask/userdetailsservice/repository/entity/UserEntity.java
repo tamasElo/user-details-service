@@ -15,6 +15,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Builder
 @Getter
@@ -37,9 +39,11 @@ public class UserEntity {
   private String email;
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+  @LazyCollection(LazyCollectionOption.FALSE)
   private List<AddressEntity> addresses;
 
   @ElementCollection
+  @LazyCollection(LazyCollectionOption.FALSE)
   @CollectionTable(name = "phone_numbers")
   private List<String> phoneNumbers;
 }

@@ -18,7 +18,8 @@ public class UserEntityMapper implements Mapper<User, UserEntity> {
 
   @Override
   public UserEntity map(User user) {
-    return UserEntity.builder()
+
+    UserEntity userEntity = UserEntity.builder()
         .uuid(user.getUuid())
         .name(user.getName())
         .birthdate(user.getBirthdate())
@@ -30,11 +31,20 @@ public class UserEntityMapper implements Mapper<User, UserEntity> {
         .addresses(createAddressEntities(user.getAddresses()))
         .phoneNumbers(copyOf(user.getPhoneNumbers()))
         .build();
+
+    updateAddressesEntitiesWithUserEntity(userEntity);
+
+    return userEntity;
   }
 
   private List<AddressEntity> createAddressEntities(List<Address> addresses) {
     return addresses.stream()
         .map(addressEntityMapper::map)
         .toList();
+  }
+
+  private void updateAddressesEntitiesWithUserEntity(UserEntity userEntity) {
+    userEntity.getAddresses()
+        .forEach(addressEntity -> addressEntity.setUser(userEntity));
   }
 }

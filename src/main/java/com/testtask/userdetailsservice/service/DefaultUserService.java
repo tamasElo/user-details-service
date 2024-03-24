@@ -4,6 +4,8 @@ import com.testtask.userdetailsservice.repository.UserRepository;
 import com.testtask.userdetailsservice.repository.entity.UserEntity;
 import com.testtask.userdetailsservice.service.domain.User;
 import com.testtask.userdetailsservice.service.mapper.Mapper;
+import java.util.List;
+import java.util.stream.StreamSupport;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +21,13 @@ public class DefaultUserService implements UserService {
   public User createUser(User user) {
     var userEntity = userRepository.save(userEntityMapper.map(user));
     return userMapper.map(userEntity);
+  }
+
+  @Override
+  public List<User> getUsers() {
+    var userEntities = userRepository.findAll();
+    return StreamSupport.stream(userEntities.spliterator(), false)
+        .map(userMapper::map)
+        .toList();
   }
 }
